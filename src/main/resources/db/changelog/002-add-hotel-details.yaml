@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-add-hotel-details
+      author: developer
+      changes:
+        - addColumn:
+            tableName: hotels
+            columns:
+              - column:
+                  name: brand
+                  type: VARCHAR(255)
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  name: check_in
+                  type: TIME
+              - column:
+                  name: check_out
+                  type: TIME
