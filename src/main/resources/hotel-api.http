@@ -1,0 +1,11 @@
+### Создать отель
+POST http://localhost:8092/property-view/hotels
+Content-Type: application/json
+
+{
+  "name": "Grand Hotel",
+  "description": "Comfortable hotel in the city centre",
+  "phone": "+31 20 123 4567",
+  "brand": "Grand",
+  "email": "info@grand.example"
+}
