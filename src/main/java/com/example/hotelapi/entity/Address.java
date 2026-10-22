@@ -1,5 +1,6 @@
 package com.example.hotelapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +23,7 @@ public class Address {
     private String country;
     private String postCode;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "hotel_id", nullable = false, unique = true)
     private Hotel hotel;
