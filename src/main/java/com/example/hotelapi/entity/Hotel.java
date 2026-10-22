@@ -1,14 +1,6 @@
 package com.example.hotelapi.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +28,24 @@ public class Hotel {
             inverseJoinColumns = @JoinColumn(name = "amenity_id")
     )
     private List<Amenity> amenities = new ArrayList<>();
+
+    @OneToOne(
+            mappedBy = "hotel",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+        if (address != null) {
+            address.setHotel(this);
+        }
+    }
 
     public Hotel() {
     }
